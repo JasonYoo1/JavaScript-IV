@@ -51,7 +51,7 @@ class Student extends Person{
         return (`${student} has submitted a PR for ${subject}`);
     }
     sprintChallenge(student, subject){
-        console.log (`${student} has begun sprint challenge on ${subject}`);
+        return `${student} has begun sprint challenge on ${subject}`
     }
     
 }
@@ -64,10 +64,10 @@ class ProjectManager extends Instructor{
         this.favInstructor= projectManagerOptions.favInstructor;
     }
     standUp(name, channel){
-        console.log(`${name} announces to ${channel}, @channel standy times!`)
+        return `${name} announces to ${channel}, @channel standy times!`
     }
     debugsCode(name, student, subject){
-        console.log(`${name} debugs ${student.name}'s code on ${subject}`);
+        return `${name} debugs ${student.name}'s code on ${subject}`
     }
 }
 
