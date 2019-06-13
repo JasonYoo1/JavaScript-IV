@@ -23,12 +23,14 @@ class Instructor extends Person{
         this.catchPhrase = instructorOptions.catchPhrase;
     } 
     demo(subject){
-        console.log(`Today we are learning about ${subject}`)
+        return (`Today we are learning about ${subject}`)
     }
     grade(student, subject){
-        console.log(`${student} receives a perfect score on ${subject}`)
+        return (`${student} receives a perfect score on ${subject}`)
     }
 }
+
+
 
 
 //Student
@@ -45,12 +47,27 @@ class Student extends Person{
             console.log (this.favSubjects[i]);
         }
     }
+    PRAssignment(student, subject){
+        return (`${student} has submitted a PR for ${subject}`);
+    }
+    sprintChallenge(student, subject){
+        console.log (`${student} has begun sprint challenge on ${subject}`);
+    }
+    
 }
 
 //PM
 class ProjectManager extends Instructor{
     constructor(projectManagerOptions){
         super(projectManagerOptions);
+        this.gradClassName = projectManagerOptions.gradClassName;
+        this.favInstructor= projectManagerOptions.favInstructor;
+    }
+    standUp(name, channel){
+        console.log(`${name} announces to ${channel}, @channel standy times!`)
+    }
+    debugsCode(name, student, subject){
+        console.log(`${name} debugs ${student.name}'s code on ${subject}`);
     }
 }
 
@@ -172,3 +189,15 @@ const dan = new Instructor({
     favLanguage: 'Java',
     catchPhrase: ":eggplant:",
 });
+
+
+
+console.log(dan.speak());
+console.log(dan.demo('JavaScript'));
+console.log('Grade:', dan.grade(isaiah.name, 'Javascript'));
+console.log(brandon.debugsCode('Brandon', isaiah.name, 'JavaScript')); 
+isaiah.listsSubjects();
+console.log('Grade:', isaiah.PRAssignment(isaiah.name, 'Javascript'));
+console.log(isaiah.sprintChallenge(isaiah.name, 'JavaScript')); 
+console.log (brandon.standUp(isaiah.name, 'Javascript'))
+console.log(brandon.debugsCode('Brandon', isaiah, 'JavaScript'));
