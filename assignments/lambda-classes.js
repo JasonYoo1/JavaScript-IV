@@ -8,7 +8,7 @@ class Person{
         this.location = baseClass.location
     }
     speak(){
-        return `Hello my name is ${this.name}, I am from ${location} `;
+        return `Hello my name is ${this.name}, I am from ${this.location} `;
     }
 }
 
@@ -21,6 +21,12 @@ class Instructor extends Person{
         this.specialty = instructorOptions.specialty;
         this.favLanguage = instructorOptions.favLanguage;
         this.catchPhrase = instructorOptions.catchPhrase;
+    } 
+    demo(subject){
+        console.log(`Today we are learning about ${subject}`)
+    }
+    grade(student, subject){
+        console.log(`${student} receives a perfect score on ${subject}`)
     }
 }
 
@@ -30,6 +36,14 @@ class Instructor extends Person{
 class Student extends Person{
     constructor(studentOptions){
         super(studentOptions);
+        this.previousBackground = studentOptions.previousBackground;
+        this.className = studentOptions.className
+        this.favSubjects = studentOptions.favSubjects;
+    }
+    listsSubjects(){
+        for(let i=0; i<this.favSubjects.length; i++){
+            console.log (this.favSubjects[i]);
+        }
     }
 }
 
